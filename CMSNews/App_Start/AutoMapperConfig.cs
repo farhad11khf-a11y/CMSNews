@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
-
+using CMSNews.Models.Models;
+using CMSNews.Models.ViewModels;
 
 namespace CMSNews.App_Start
 {
@@ -19,6 +20,11 @@ namespace CMSNews.App_Start
         {
             return new MapperConfiguration(t =>
             {
+                t.CreateMap<NewsGroup, NewsGroupsViewModel>().IgnoreAllPropertiesWithAnInaccessibleSetter().ReverseMap();
+                t.CreateMap<News , NewsViewModel>().IgnoreAllPropertiesWithAnInaccessibleSetter().ReverseMap();
+                t.CreateMap<User, UserViewModel>().IgnoreAllPropertiesWithAnInaccessibleSetter().ReverseMap();
+                t.CreateMap<Comment, CommentsViewMdel>().IgnoreAllPropertiesWithAnInaccessibleSetter().ReverseMap();
+                
             });
         }
     }

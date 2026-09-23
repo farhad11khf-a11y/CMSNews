@@ -10,5 +10,6 @@ namespace CMSNews.Service.Service
 {
    public interface INewsService:IGenericService<News>
     {
+        News GetNewsWithDetails(int id);
     }
 }

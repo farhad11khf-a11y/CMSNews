@@ -1,0 +1,133 @@
+﻿
+@model CMSNews.Models.ViewModels.NewsViewModel
+
+@{
+    ViewBag.Title = "حذف خبر";
+}
+
+
+<div class="container mt-4">
+    <h2 class="mb-4">حذف خبر</h2>
+
+    <h5 class="text-danger mb-4">
+        آیا از حذف این خبر مطمئن هستید؟
+    </h5>
+    <div class="border rounded p-4">
+
+        <dl class="row mb-0">
+
+            <!-- عنوان خبر -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.NewsTitle)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Model.NewsTitle
+            </dd>
+
+
+            <!-- گروه خبری -->
+            <dt class="col-sm-3 mb-3">
+                گروه خبری
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Model.NewsGroup.NewsGroupTitle
+            </dd>
+
+
+            <!-- تصویر -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.ImageName)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                <img src="@Url.Content("~/Images/news/" + Model.ImageName)"
+                     alt="@Model.NewsTitle"
+                     title="@Model.NewsTitle"
+                     class="img-thumbnail"
+                     style="width: 220px; height: 160px; object-fit: cover;" />
+            </dd>
+
+
+            <!-- تاریخ -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.RegisterDate)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Html.DisplayFor(model => model.RegisterDate)
+            </dd>
+
+
+            <!-- وضعیت -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @(Model.IsActive ? "فعال" : "غیرفعال")
+            </dd>
+
+
+            <!-- بازدید -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.see)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Model.see
+            </dd>
+
+
+            <!-- لایک -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.Like)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Model.Like
+            </dd>
+
+        </dl>
+
+
+        <!-- توضیحات خبر -->
+        <div class="mt-3">
+
+            <h5 class="border-bottom pb-2">
+                توضیحات خبر
+            </h5>
+
+            <div class="border rounded p-3 mt-3"
+                 style="line-height: 2;">
+
+                @Html.Raw(Model.Description)
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions mt-4">
+
+            <input type="submit"
+                   value="حذف خبر"
+                   class="btn btn-danger" />
+
+            @Html.ActionLink(
+                "بازگشت به لیست خبر",
+                "Index",
+                null,
+                new { @class = "btn btn-secondary ms-2" }
+            )
+
+        </div>
+    }
+</div>

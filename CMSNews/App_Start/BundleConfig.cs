@@ -11,19 +11,48 @@ namespace CMSNews.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+
             // CSS
             bundles.Add(new StyleBundle("~/Content/MyStyle")
                 .Include(
-                    "~/Content/bootstrap.min.css", "~/Content/bootstrap.rtl.min.css",
+                    "~/Content/bootstrap.min.css",
+                    "~/Content/bootstrap.rtl.min.css",
                     "~/Content/Site.css"
                 ));
 
-            // JavaScript
+            // jQuery اصلی
+            bundles.Add(new ScriptBundle("~/bundles/jquery")
+                .Include(
+                    "~/Scripts/jquery-3.7.1.min.js"
+                ));
+
+            // Bootstrap و سایر JavaScriptها
             bundles.Add(new ScriptBundle("~/Bundle/MyScript")
                 .Include(
-                    "~/Scripts/jquery-3.7.1.min.js",
-                    "~/Scripts/bootstrap.bundle.min.js"
+                    "~/Scripts/bootstrap.bundle.min.js",
+                     "~/Scripts/myScripts.js"
                 ));
+
+            // اعتبارسنجی فرم‌ها برای Scaffold
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval")
+                .Include(
+                    "~/Scripts/jquery.validate.js",
+                    "~/Scripts/jquery.validate.unobtrusive.js"
+                ));
+
+            //// CSS
+            //bundles.Add(new StyleBundle("~/Content/MyStyle")
+            //    .Include(
+            //        "~/Content/bootstrap.min.css", "~/Content/bootstrap.rtl.min.css",
+            //        "~/Content/Site.css"
+            //    ));
+
+            //// JavaScript
+            //bundles.Add(new ScriptBundle("~/Bundle/MyScript")
+            //    .Include(
+            //        "~/Scripts/jquery-3.7.1.min.js",
+            //        "~/Scripts/bootstrap.bundle.min.js"
+            //    ));
 
             BundleTable.EnableOptimizations = false;
         }

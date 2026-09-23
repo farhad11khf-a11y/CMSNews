@@ -11,8 +11,16 @@ namespace CMSNews.Service.Service
 {
     public class UserService : GenericService<User>, IUserService
     {
+        UserRepository _userRepository;
         public UserService(DbCMSNewsContext context) : base(context)
         {
+            _userRepository = new UserRepository(context);
+        }
+
+        public int GetUserId(string mobileNumber)
+        {
+            var user = _userRepository.GetAll().FirstOrDefault(t => t.MobileNumber == mobileNumber);
+           return user.UserId;
         }
     }
 }

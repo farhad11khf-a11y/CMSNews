@@ -1,0 +1,361 @@
+﻿
+
+
+
+@model CMSNews.Models.ViewModels.NewsViewModel
+
+@{
+    ViewBag.Title = "جزئیات خبر";
+}
+
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">جزئیات خبر</h2>
+
+    <div class="border rounded p-4">
+
+        <dl class="row mb-0">
+
+            <!-- عنوان خبر -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.NewsTitle)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Model.NewsTitle
+            </dd>
+
+
+            <!-- گروه خبری -->
+            <dt class="col-sm-3 mb-3">
+                گروه خبری
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Model.NewsGroup.NewsGroupTitle
+            </dd>
+
+
+            <!-- تصویر -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.ImageName)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                <img src="@Url.Content("~/Images/news/" + Model.ImageName)"
+                     alt="@Model.NewsTitle"
+                     title="@Model.NewsTitle"
+                     class="img-thumbnail"
+                     style="width: 220px; height: 160px; object-fit: cover;" />
+            </dd>
+
+
+            <!-- تاریخ -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.RegisterDate)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Html.DisplayFor(model => model.RegisterDate)
+            </dd>
+
+
+            <!-- وضعیت -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @(Model.IsActive ? "فعال" : "غیرفعال")
+            </dd>
+
+
+            <!-- بازدید -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.see)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Model.see
+            </dd>
+
+
+            <!-- لایک -->
+            <dt class="col-sm-3 mb-3">
+                @Html.DisplayNameFor(model => model.Like)
+            </dt>
+
+            <dd class="col-sm-9 mb-3">
+                @Model.Like
+            </dd>
+
+        </dl>
+
+
+        <!-- توضیحات خبر -->
+        <div class="mt-3">
+
+            <h5 class="border-bottom pb-2">
+                توضیحات خبر
+            </h5>
+
+            <div class="border rounded p-3 mt-3"
+                 style="line-height: 2;">
+
+                @Html.Raw(Model.Description)
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- دکمه‌ها -->
+    <div class="mt-4">
+
+        @Html.ActionLink(
+            "ویرایش",
+            "Edit",
+            new { id = Model.NewsId },
+            new { @class = "btn btn-primary" }
+        )
+
+        @Html.ActionLink(
+            "بازگشت به لیست خبر",
+            "Index",
+            null,
+            new { @class = "btn btn-secondary ms-2" }
+        )
+
+    </div>
+
+</div>
+
+<!--<div class="container mt-4">-->
+<!-- عنوان صفحه -->
+<!--<div class="mb-4">
+    <h2 class="fw-bold mb-1">جزئیات خبر</h2>
+    <hr />
+</div>-->
+<!-- اطلاعات اصلی خبر -->
+<!--<div class="row g-3">-->
+<!-- عنوان خبر -->
+<!--<div class="col-md-6">
+    <div class="border rounded p-3 bg-light">
+        <small class="text-muted">عنوان خبر</small>
+        <div class="fw-bold mt-1">
+            @Model.NewsTitle
+        </div>
+    </div>
+</div>-->
+<!-- گروه خبری -->
+<!--<div class="col-md-6">
+    <div class="border rounded p-3 bg-light">
+        <small class="text-muted">گروه خبری</small>
+        <div class="fw-bold mt-1">
+            @Model.NewsGroup.NewsGroupTitle
+        </div>
+    </div>
+</div>-->
+<!-- کاربر ثبت کننده -->
+<!--<div class="col-md-6">
+    <div class="border rounded p-3 bg-light">
+        <small class="text-muted">کاربر ثبت کننده</small>
+        <div class="fw-bold mt-1">
+            @Model.User.MobileNumber
+        </div>
+    </div>
+</div>-->
+<!-- تاریخ درج -->
+<!--<div class="col-md-6">
+    <div class="border rounded p-3 bg-light">
+        <small class="text-muted">تاریخ درج</small>
+        <div class="fw-bold mt-1">
+            @Html.DisplayFor(model => model.RegisterDate)
+        </div>
+    </div>
+</div>-->
+<!-- وضعیت -->
+<!--<div class="col-md-4">
+    <div class="border rounded p-3 bg-light">
+        <small class="text-muted">وضعیت</small>
+        <div class="fw-bold mt-1">
+            @(Model.IsActive ? "فعال" : "غیرفعال")
+        </div>
+    </div>
+</div>-->
+<!-- بازدید -->
+<!--<div class="col-md-4">
+    <div class="border rounded p-3 bg-light">
+        <small class="text-muted">تعداد بازدید</small>
+        <div class="fw-bold mt-1">
+            @Model.see
+        </div>
+    </div>
+</div>-->
+<!-- لایک -->
+<!--<div class="col-md-4">
+        <div class="border rounded p-3 bg-light">
+            <small class="text-muted">تعداد لایک</small>
+            <div class="fw-bold mt-1">
+                @Model.Like
+            </div>
+        </div>
+    </div>
+
+</div>-->
+<!-- تصویر خبر -->
+<!--<div class="mt-4">
+    <h5 class="fw-bold mb-3">تصویر خبر</h5>
+
+    <img src="@Url.Content("~/Images/news/" + Model.ImageName)"
+         alt="@Model.NewsTitle"
+         title="@Model.NewsTitle"
+         class="img-thumbnail"
+         style="width: 250px; height: 180px; object-fit: cover;" />
+</div>-->
+<!-- توضیحات خبر -->
+<!--<div class="mt-4">
+
+    <h5 class="fw-bold mb-3">توضیحات خبر</h5>
+
+    <div class="border rounded p-4 bg-light"
+         style="line-height: 2; text-align: right;">
+
+        @Html.Raw(Model.Description)
+
+    </div>
+
+</div>-->
+<!-- دکمه ها -->
+<!--<div class="mt-4">
+
+        @Html.ActionLink(
+            "ویرایش",
+            "Edit",
+            new { id = Model.NewsId },
+            new { @class = "btn btn-primary px-4" }
+        )
+
+        @Html.ActionLink(
+            "بازگشت به لیست خبر",
+            "Index",
+            null,
+            new { @class = "btn btn-secondary px-4 ms-2" }
+        )
+
+    </div>
+
+</div>-->
+<!--
+
+}
+
+<h2>جزئیات خبر</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            گروه خبری
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsGroup.NewsGroupTitle)
+        </dd>
+
+        <dt>
+            کاربر ثبت کننده
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.MobileNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsTitle)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Images/news/" + Model.ImageName)"
+                 alt="@Model.NewsTitle"
+                 title="@Model.NewsTitle"
+                 style="width: 200px; height: 150px; object-fit: cover;" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+        <dd>
+            @(Model.IsActive ? "فعال" : "غیرفعال")
+        </dd>-->
+@*<dd>
+        @Html.DisplayFor(model => model.IsActive)
+    </dd>*@
+
+<!--<dt>
+    @Html.DisplayNameFor(model => model.see)
+</dt>
+
+<dd>
+    @Html.DisplayFor(model => model.see)
+</dd>
+
+<dt>
+    @Html.DisplayNameFor(model => model.Like)
+</dt>
+
+<dd>
+    @Html.DisplayFor(model => model.Like)
+
+</dd>-->
+<!-- تغییر: نمایش توضیحات خبر داخل یک قاب -->
+<!--<dt class="mt-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            <div class="card shadow-sm mt-2">
+
+                <div class="card-header bg-light fw-bold">
+                    توضیحات خبر
+                </div>
+
+                <div class="card-body"
+                     style="line-height: 2; text-align: right;">
+
+                    @Html.Raw(Model.Description)
+
+                </div>
+
+            </div>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.NewsId }) |
+    @Html.ActionLink("بازگشت به لیست خبر", "Index")
+</p>-->

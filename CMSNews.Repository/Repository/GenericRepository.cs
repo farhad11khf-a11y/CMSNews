@@ -13,7 +13,8 @@ namespace CMSNews.Repository.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T:BaseEntity
     {
-        DbCMSNewsContext db;
+        protected DbCMSNewsContext db;
+        //DbCMSNewsContext db;
         DbSet<T> dbSet;
         public GenericRepository( DbCMSNewsContext context)
         {

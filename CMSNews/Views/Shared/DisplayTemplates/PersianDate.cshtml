@@ -1,0 +1,11 @@
+﻿@model DateTime
+
+@using CMSNews.Classes.Helpers.PersianDate
+
+@{
+    // فرمت تاریخ که در ViewModel مشخص کرده‌ایم
+    var format = (PersianDateFormat)
+        ViewData.ModelMetadata.AdditionalValues["PersianDateFormat"];
+}
+
+@PersianDateHelper.ToPersianDate(Model, format)

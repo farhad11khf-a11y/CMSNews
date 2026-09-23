@@ -18,6 +18,6 @@ namespace CMSNews.Models.Models
         public string NewsGroupTitle { get; set; }
         [MaxLength(100)]
         public string ImageName { get; set; }
-        public IEnumerable<News>Newses { get; set; }
+        public virtual IEnumerable<News>Newses { get; set; }
     }
 }

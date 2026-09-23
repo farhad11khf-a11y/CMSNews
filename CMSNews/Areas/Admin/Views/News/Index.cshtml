@@ -1,0 +1,256 @@
+﻿
+
+@model IEnumerable<CMSNews.Models.ViewModels.NewsViewModel>
+@using CMSNews.Classes.Helpers.PersianDate;
+@{
+    ViewBag.Title = "مدیریت اخبار";
+}
+
+<div class="container py-4" dir="rtl">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-1">مدیریت اخبار</h2>
+            <p class="text-muted mb-0">فهرست اخبار ثبت‌شده در سیستم</p>
+        </div>
+
+        <div>
+            @Html.ActionLink("ثبت خبر جدید", "Create", null,
+                new { @class = "btn btn-primary px-4" })
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+
+            <div class="table-responsive bg-dark">
+
+                @* اضافه شد:
+                    text-nowrap باعث می‌شود متن داخل سلول‌ها
+                    به خط بعد نرود و ستون‌ها منظم‌تر بمانند *@
+                <table class="table table-striped table-hover align-middle mb-0 text-nowrap">
+
+                    <thead class="table-dark">
+
+                        <tr>
+
+                            @* اضافه شد:
+                                text-center باعث می‌شود عنوان ستون
+                                وسط ستون قرار بگیرد *@
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.ImageName)
+                            </th>
+
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.NewsGroupId)
+                            </th>
+
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.NewsTitle)
+                            </th>
+
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.RegisterDate)
+
+                            </th>
+
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.IsActive)
+                            </th>
+
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.see)
+                            </th>
+
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.Like)
+                            </th>
+
+                            <th class="text-center">
+                                عملیات
+                            </th>
+
+                        </tr>
+                    </thead>
+
+                    @* این tbody را اضافه کردیم:
+                        tbody بخش مخصوص داده‌های جدول است *@
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                @* text-center:
+                                    تصویر در وسط ستون قرار می‌گیرد *@
+                                <td class="text-center">
+                                    <img src="~/Images/news/@item.ImageName"
+                                         class="img60"
+                                         alt="تصویر خبر" />
+                                </td>
+
+                                @* text-center:
+                                    نام گروه خبری وسط ستون قرار می‌گیرد *@
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem =>
+                                        item.NewsGroup.NewsGroupTitle)
+                                </td>
+
+                                @* text-center:
+                                    عنوان خبر وسط ستون قرار می‌گیرد *@
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem =>
+                                        item.NewsTitle)
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem =>item.RegisterDate)
+
+                                    @*@PersianDateHelper.ToPersianDate(item.RegisterDate)*@
+                                    @*@PersianDateHelper.ToPersianDate(item.RegisterDate, PersianDateFormat.Long)*@
+
+
+
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem =>
+                                        item.IsActive)
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem =>
+                                        item.see)
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem =>
+                                        item.Like)
+                                </td>
+
+                                <td class="text-center text-nowrap">
+
+                                    @Html.ActionLink("ویرایش", "Edit",
+                                        new { id = item.NewsId },
+                                        new { @class = "btn btn-sm btn-outline-warning ms-1" })
+
+                                    @Html.ActionLink("جزئیات", "Details",
+                                        new { id = item.NewsId },
+                                        new { @class = "btn btn-sm btn-outline-info ms-1" })
+
+                                    @Html.ActionLink("حذف", "Delete",
+                                        new { id = item.NewsId },
+                                        new { @class = "btn btn-sm btn-outline-danger" })
+
+                                </td>
+
+                            </tr>
+                        }
+
+                        @* tbody در اینجا بسته می‌شود *@
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*@model IEnumerable<CMSNews.Models.ViewModels.NewsViewModel>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <div class="container py-4" dir="rtl">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-1">مدیریت Index</h2>
+                <p class="text-muted mb-0">فهرست اطلاعات ثبت‌شده</p>
+            </div>
+            <div>
+                @Html.ActionLink("ثبت مورد جدید", "Create", null,
+                    new { @class = "btn btn-primary px-4" })
+            </div>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-0">
+                <div class="table-responsive bg-dark" >
+                    <table class="table table-striped table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>  @Html.DisplayNameFor(model => model.ImageName)</th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NewsGroup)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NewsTitle)
+                                </th>
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RegisterDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IsActive)
+                                </th>
+                                <th class="text-center" >
+                                    @Html.DisplayNameFor(model => model.see)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Like)
+                                </th>
+                                <th class="text-center">عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/Images/news/@item.ImageName" class="img60" alt="Alternate Text" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NewsGroup.NewsGroupTitle)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NewsTitle)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RegisterDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsActive)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.see)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Like)
+                                    </td>
+                                    <td class="text-center text-nowrap">
+                                        @Html.ActionLink("ویرایش", "Edit", new { id = item.NewsId },
+                                            new { @class = "btn btn-sm btn-outline-warning ms-1" })
+                                        @Html.ActionLink("جزئیات", "Details", new { id = item.NewsId },
+                                            new { @class = "btn btn-sm btn-outline-info ms-1" })
+                                        @Html.ActionLink("حذف", "Delete", new { id = item.NewsId },
+                                            new { @class = "btn btn-sm btn-outline-danger" })
+                                    </td>
+                                </tr>
+                            }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>*@

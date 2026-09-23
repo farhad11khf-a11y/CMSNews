@@ -33,9 +33,9 @@ namespace CMSNews.Models.Models
         public int NewsGroupId { get; set; }
         [Required]
         public int UserId { get; set; }
-        public User User { get; set; }
-        public NewsGroup NewsGroup { get; set; }
-        public IEnumerable<Comment> Comments { get; set; }
+        public virtual User User { get; set; }
+        public virtual NewsGroup NewsGroup { get; set; }
+        public virtual IEnumerable<Comment> Comments { get; set; }
 
 
 

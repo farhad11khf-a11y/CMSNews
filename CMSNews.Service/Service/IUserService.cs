@@ -10,5 +10,6 @@ namespace CMSNews.Service.Service
 {
    public interface IUserService:IGenericService<User>
     {
+        int GetUserId(string mobileNumber);
     }
 }

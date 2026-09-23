@@ -10,5 +10,6 @@ namespace CMSNews.Service.Service
 {
    public interface INewsGroupService:IGenericService<NewsGroup>
     {
+        int NextNewsGroupId();
     }
 }

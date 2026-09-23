@@ -11,8 +11,25 @@ namespace CMSNews.Service.Service
 {
     public class NewsGroupService : GenericService<NewsGroup>, INewsGroupService
     {
+        private INewsGroupRepository _newsGroupRepository;
+
         public NewsGroupService(DbCMSNewsContext context) : base(context)
         {
+            _newsGroupRepository = new NewsGroupRepository(context);
+        }
+
+        public int NextNewsGroupId()
+        {
+            int Max = 1;
+
+            var newsGroup = _newsGroupRepository.GetAll().ToList();
+
+            if (newsGroup.Count > 0)
+            {
+                Max = newsGroup.Max(t => t.NewsGroupId) + 1;
+            }
+
+            return Max;
         }
     }
 }

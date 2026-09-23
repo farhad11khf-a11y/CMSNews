@@ -9,5 +9,7 @@ namespace CMSNews.Repository.Repository
 {
    public interface INewsRepository:IGenericRepository<News>
     {
+        // اضافه شد: دریافت خبر به همراه گروه خبری و کاربر
+        News GetNewsWithDetails(int id);
     }
 }

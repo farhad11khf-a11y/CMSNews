@@ -24,7 +24,7 @@ namespace CMSNews.Models.Models
         public DateTime RegisteDate { get; set; }
         [Required]
         public bool IsActive { get; set; }
-        public IEnumerable<News> Newses { get; set; }
+        public virtual IEnumerable<News> Newses { get; set; }
 
 
 

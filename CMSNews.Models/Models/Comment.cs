@@ -28,7 +28,7 @@ namespace CMSNews.Models.Models
         public bool IsActive { get; set; }
         [Required]
         public int NewsId { get; set; } 
-        public News News { get; set; }
+        public virtual News News { get; set; }
         
     }
 }

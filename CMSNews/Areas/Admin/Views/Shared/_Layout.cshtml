@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/MyStyle")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -14,12 +14,32 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year </p>
         </footer>
     </div>
-
-    @Scripts.Render("~/Bundle/MyScrip")
-   
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Bundle/MyScript")
     @RenderSection("scripts", required: false)
+
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>
+    @*<script>
+        $(function () {
+            $('#Description').ckeditor();
+            });
+        </script>*@
+    <script>
+        $(function () {
+
+            console.log("jQuery:", typeof $);
+            console.log("CKEDITOR:", typeof CKEDITOR);
+            console.log("ckeditor adapter:", typeof $.fn.ckeditor);
+
+            $('#Description').ckeditor( { contentsLangDirection: 'rtl'   } );
+
+        });
+    </script>
+
 </body>
 </html>

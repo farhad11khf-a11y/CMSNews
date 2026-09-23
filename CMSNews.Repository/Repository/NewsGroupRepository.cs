@@ -8,7 +8,7 @@ using CMSNews.Models.Models;
 
 namespace CMSNews.Repository.Repository
 {
-    class NewsGroupRepository : GenericRepository<NewsGroup>, INewsGroupRepository
+   public class NewsGroupRepository : GenericRepository<NewsGroup>, INewsGroupRepository
     {
         public NewsGroupRepository(DbCMSNewsContext context) : base(context)
         {

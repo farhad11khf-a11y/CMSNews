@@ -11,8 +11,15 @@ namespace CMSNews.Service.Service
 {
     public class NewsService : GenericService<News>, INewsService
     {
+        private INewsRepository _newsRepository;
         public NewsService(DbCMSNewsContext context) : base(context)
         {
+            _newsRepository = new NewsRepository(context);
+        }
+
+        public News GetNewsWithDetails(int id)
+        {
+            return _newsRepository.GetNewsWithDetails(id);
         }
     }
 }
