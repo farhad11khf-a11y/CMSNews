@@ -18,12 +18,29 @@ namespace CMSNews.Models.Models
         [MaxLength (15)]
         public string MobileNumber  { get; set; }
         [Required]
+        [MaxLength(200)]
+        public string ImageName { get; set; }
+
+        [Required]
+        [MaxLength(30)]
+
+        public string FirstName { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string LastName { get; set; }
+
+        [Required]
         [MaxLength(100)]
+
         public string Password  { get; set; }
         [Required]
         public DateTime RegisteDate { get; set; }
         [Required]
         public bool IsActive { get; set; }
+        [Required]
+        [MaxLength(20)]
+        public string Role { get; set; }
         public virtual IEnumerable<News> Newses { get; set; }
 
 
