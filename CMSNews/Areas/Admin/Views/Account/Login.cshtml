@@ -1,0 +1,35 @@
+﻿
+@model CMSNews.Models.ViewModels.LoginViewModel
+@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(
+        false,
+        "",
+        new { @class = "text-danger" }
+    )
+
+    <div>
+        @Html.LabelFor(model => model.MobileNumber)
+        @Html.TextBoxFor(model => model.MobileNumber)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password)
+    </div>
+
+    <div>
+        @Html.CheckBoxFor(model => model.RememberMe)
+        @Html.LabelFor(model => model.RememberMe)
+    </div>
+
+    <button type="submit">ورود</button>
+}
