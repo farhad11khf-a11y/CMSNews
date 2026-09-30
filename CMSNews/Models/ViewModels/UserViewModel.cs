@@ -1,4 +1,5 @@
-﻿using CMSNews.Models.Models;
+﻿using CMSNews.Classes.Helpers.PersianDate;
+using CMSNews.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -21,7 +22,7 @@ namespace CMSNews.Models.ViewModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [Display(Name = "تاریخ ثبت نام")]
-
+        [PersianDate(PersianDateFormat.Long)]
         public DateTime RegisteDate { get; set; }
         [Display(Name = "وضعیت")]
 

@@ -2,6 +2,21 @@
 @{
     ViewBag.Title = "وبسایت خبری";
 }
+@Html.Partial("_PartialSlider")
+@Html.Action("ShowNewsGroup", "_PartialNews", new { locId = 1 })
+<div class="main">
+    <div class="row">
+        <div class="col-md-4">
+            @Html.Action("LatestNews", "_PartialNews", new { count = 4 })
 
-<h2>صفحه اصلی سایت خبری</h2>
 
+            @Html.Action("MostViewedNews", "_PartialNews", new { count = 4 })
+
+        </div>
+        <div class="col-md-8">
+            <div class="news-item2">
+                @Html.Action("LatestNews1", "_PartialNews")
+            </div>
+        </div>
+    </div>
+</div>

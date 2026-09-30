@@ -12,9 +12,11 @@ using System.Web;
 using System;
 using System.IO;
 using System.Linq;
+using CMSNews.Classes.Attributes;
 
 namespace CMSNews.Areas.Admin.Controllers
 {
+    [AdminAuthorize]
     public class NewsGroupsController : Controller
     {
         private DbCMSNewsContext db = new DbCMSNewsContext();

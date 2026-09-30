@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CMSNews.Models.ViewModels.NewsViewModel>
+
+<div class="news-panel">
+    <div class="news-item-title">
+        پربازدیدترین خبرها
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="news-item1 row">
+            <div class="news-item-right">
+                <img src="~/images/news/@item.ImageName" alt="@item.NewsTitle" class="img1">
+            </div>
+            <div class="news-item-left">
+                <h2 class="news-title">
+                  @item.NewsTitle
+                </h2>
+                <div class="news-desc">
+                    <div>
+                        <i class="fa fa-eye"></i>
+                      @item.see
+                    </div>
+                    <div>
+                        <i class="fa fa-calendar"></i>
+                        @Html.DisplayFor(Model=>item.RegisterDate)
+                    </div>
+                    <div>
+                        <i class="fa fa-thumbs-up"></i>
+                      @item.Like
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+   
+</div>

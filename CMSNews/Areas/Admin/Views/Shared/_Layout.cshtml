@@ -1,22 +1,106 @@
 ﻿<!DOCTYPE html>
-<html>
+
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/MyStyle")
-    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+   
+    
 </head>
 <body dir="rtl">
 
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year </p>
-        </footer>
+    @*<div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year </p>
+            </footer>
+        </div>*@
+
+
+
+
+    <div class="d-flex" id="wrapper">
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading"> پنل مدیریت  @User.Identity.Name </div>
+            <div class="list-group list-group-flush">
+
+
+
+                <a href="/Admin" class="list-group-item list-group-item-action bg-light">داشبورد</a>
+                <a href="~/Admin/NewsGroups/Index" class="list-group-item list-group-item-action bg-light">مدیریت گروه اخبار</a>
+                <a href="~/Admin/News/Index" class="list-group-item list-group-item-action bg-light">مدیریت اخبار</a>
+                <a href="~/Admin/Users/Index" class="list-group-item list-group-item-action bg-light">مدیریت کاربران</a>
+                <a href="~/Admin/Comments/Index" class="list-group-item list-group-item-action bg-light">مدیریت نظرات</a>
+                <a href="~/Account/Logout" class="list-group-item list-group-item-action bg-light">خروج</a>
+            </div>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-green " id="menu-toggle">باز/بسته</button>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav mt-2 mt-lg-0 " style="margin-right: auto !important">
+                        <li class="nav-item">
+                            <a class="nav-link admin-nav-link  " href="/">
+                                <i class="fa fa-home" ></i>
+                                خانه
+                            </a>
+                         
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link admin-nav-link"
+                               href="@Url.Action("Logout", "Account", new { area = "Admin" })">
+                                <i class="fa fa-sign-out"></i>
+                                خروج
+                            </a>
+                            @*<a class="nav-link admin-nav-link"
+                               href="/Admin/Account/Logout">
+
+                                <i class="fa fa-sign-out"></i>
+                                خروج
+
+                            </a>*@
+
+                            @*<a class="nav-link admin-nav-link" href="~/Account/Logout">
+            <i class="fa fa-sign-out"></i>
+            خروج
+        </a>*@
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year </p>
+                </footer>
+            </div>
+
+            @*<div class="container-fluid">
+                    <h1 class="mt-4">داشبورد پنل مدیریت - سیستم مدیریت محتوای وبسایت خبری</h1>
+                    <p>
+                        @RenderBody()
+                    </p>
+                </div>*@
+        </div>
     </div>
+
+
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Bundle/MyScript")
     @RenderSection("scripts", required: false)
@@ -36,8 +120,14 @@
             console.log("CKEDITOR:", typeof CKEDITOR);
             console.log("ckeditor adapter:", typeof $.fn.ckeditor);
 
-            $('#Description').ckeditor( { contentsLangDirection: 'rtl'   } );
+            $('#Description').ckeditor({ contentsLangDirection: 'rtl' });
 
+        });
+    </script>
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
         });
     </script>
 

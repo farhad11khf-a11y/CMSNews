@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.2\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -51,10 +52,10 @@
       <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.5.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.5.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -605,6 +606,7 @@
     <Content Include="ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="ckeditor\styles.js" />
     <Content Include="ckeditor\vendor\promise.js" />
+    <Content Include="Content\admin-style.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -621,14 +623,42 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\slider-style.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\logo\0.png" />
+    <Content Include="Images\logo\1.png" />
+    <Content Include="Images\logo\2.png" />
+    <Content Include="Images\logo\3.png" />
+    <Content Include="Images\logo\4.png" />
+    <Content Include="Images\logo\beauty-no-bg.png" />
+    <Content Include="Images\logo\beauty.png" />
+    <Content Include="Images\logo\darsman-logo.png" />
+    <Content Include="Images\logo\darsman-main-logo.png" />
+    <Content Include="Images\logo\favicon.png" />
+    <Content Include="Images\logo\logo.png" />
     <Content Include="Images\news.group\0fbad8b2a6324cd5992501b2b6fb061c.png" />
     <Content Include="Images\news.group\32a08492dc2546eabd976668572c5629.jpg" />
     <Content Include="Images\news.group\de161a6ef7634680b81ea01a70cb5c53.png" />
     <Content Include="Images\news.group\fc99ac5ab3804c389a56d9cd1f3c91e9.png" />
     <Content Include="Images\news.group\nophoto.png" />
     <Content Include="Images\news\nophoto.png" />
+    <Content Include="Images\person\p1.jpg" />
+    <Content Include="Images\person\p2.jpg" />
+    <Content Include="Images\person\p3.png" />
+    <Content Include="Images\person\person1.png" />
+    <Content Include="Images\root\back1.jpg" />
+    <Content Include="Images\root\back2.jpg" />
+    <Content Include="Images\root\back3.jpg" />
+    <Content Include="Images\slider\banner1.jpg" />
+    <Content Include="Images\slider\banner2.jpg" />
+    <Content Include="Images\slider\banner3.jpg" />
+    <Content Include="Images\slider\banner4.jpg" />
+    <Content Include="Images\users\6df8c3e52c194019b8c27cc2ee7f2dfa.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -697,6 +727,22 @@
     <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Comments\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
+    <Content Include="fonts\KoodakBold.eot" />
+    <Content Include="fonts\KoodakBold.ttf" />
+    <Content Include="fonts\KoodakBold.woff" />
+    <Content Include="fonts\Nazanin.eot" />
+    <Content Include="fonts\Nazanin.ttf" />
+    <Content Include="fonts\Nazanin.woff" />
+    <Content Include="fonts\Yekan.eot" />
+    <Content Include="fonts\Yekan.ttf" />
+    <Content Include="fonts\Yekan.woff" />
+    <Content Include="fonts\Yekan.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -710,6 +756,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\myScripts.js" />
+    <Content Include="Scripts\slider-script.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -717,16 +764,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsGroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Classes\Attributes\AdminAuthorizeAttribute.cs" />
     <Compile Include="Classes\Helpers\PersianData\PersianDateAttribute.cs" />
     <Compile Include="Classes\Helpers\PersianData\PersianDateFormat.cs" />
     <Compile Include="Classes\Helpers\PersianData\PersianDateHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\_PartialNewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -734,6 +784,8 @@
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\ViewModels\NewsGroupsViewModel.cs" />
     <Compile Include="Models\ViewModels\NewsViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProfileViewModel.cs" />
+    <Compile Include="Models\ViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\ViewModels\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -769,6 +821,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PersianDate.cshtml" />
+    <Content Include="Views\Shared\_PartialSlider.cshtml" />
+    <Content Include="Views\_PartialNews\ShowNewsGroup.cshtml" />
+    <Content Include="Views\_PartialNews\LatestNews.cshtml" />
+    <Content Include="Views\_PartialNews\MostViewedNews.cshtml" />
+    <Content Include="Views\_PartialNews\LatestNews1.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\myProfile.cshtml" />
+    <Content Include="Views\Account\EditProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -825,8 +885,11 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.2\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.2\build\EntityFramework.targets'))" />
   </Target>
   <Import Project="..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
+  <Import Project="..\packages\EntityFramework.6.5.2\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

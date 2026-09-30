@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CMSNews.App_Start;
+using CMSNews.Classes.Attributes;
 using CMSNews.Models.Context;
 using CMSNews.Models.Models;
 using CMSNews.Models.ViewModels;
@@ -15,6 +16,7 @@ using CMSNews.Service.Service;
 
 namespace CMSNews.Areas.Admin.Controllers
 {
+    [AdminAuthorize]
     public class NewsController : Controller
     {
         private DbCMSNewsContext db = new DbCMSNewsContext();

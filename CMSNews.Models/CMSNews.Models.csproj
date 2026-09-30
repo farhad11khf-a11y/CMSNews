@@ -56,6 +56,18 @@
     <Compile Include="Migrations\202606160815171_CreateDb.designer.cs">
       <DependentUpon>202606160815171_CreateDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202609280446198_AddUserRole.cs" />
+    <Compile Include="Migrations\202609280446198_AddUserRole.designer.cs">
+      <DependentUpon>202609280446198_AddUserRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202609290556562_AddUserNameFields.cs" />
+    <Compile Include="Migrations\202609290556562_AddUserNameFields.designer.cs">
+      <DependentUpon>202609290556562_AddUserNameFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202609292102556_AddUserImage.cs" />
+    <Compile Include="Migrations\202609292102556_AddUserImage.designer.cs">
+      <DependentUpon>202609292102556_AddUserImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -67,6 +79,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202606160815171_CreateDb.resx">
       <DependentUpon>202606160815171_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202609280446198_AddUserRole.resx">
+      <DependentUpon>202609280446198_AddUserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202609290556562_AddUserNameFields.resx">
+      <DependentUpon>202609290556562_AddUserNameFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202609292102556_AddUserImage.resx">
+      <DependentUpon>202609292102556_AddUserImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

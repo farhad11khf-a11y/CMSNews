@@ -1,16 +1,268 @@
-﻿.img60{
-    width:60px;
-    height:60px;
+﻿.img60 {
+    width: 60px;
+    height: 60px;
 }
-.img120{
+
+.img120 {
     width: 120px;
     height: 120px;
 }
 
-/* پس زمینه صفحه ورود */
+
+/* =========================================
+   Login Page Background
+========================================= */
 
 body.login-theme {
     min-height: 100vh;
     margin: 0;
-    background: radial-gradient(circle at 15% 20%, rgba(13, 110, 253, 0.12), transparent 30%), radial-gradient(circle at 85% 80%, rgba(111, 66, 193, 0.12), transparent 30%), linear-gradient(135deg, #f5f8fc, #e8eef7);
+    background: radial-gradient( circle at 15% 20%, rgba(13, 110, 253, 0.12), transparent 30% ), radial-gradient( circle at 85% 80%, rgba(111, 66, 193, 0.12), transparent 30% ), linear-gradient( 135deg, #f5f8fc, #e8eef7 );
 }
+
+
+/* =========================================
+   News Section
+========================================= */
+
+.news-section {
+    padding: 30px 0;
+    background-color: #f8f9fa;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    background-color: #ffde59;
+    padding: 5px 15px;
+    min-height: 55px;
+}
+
+.navbar-logo {
+    width: 80px;
+    height: 45px;
+    object-fit: contain;
+    margin-left: 10px;
+    transform: scale(1.8);
+}
+
+.navbar-brand {
+    color: #222 !important;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.navbar .nav-link {
+    color: #222 !important;
+    font-size: 14px;
+    padding: 8px 10px;
+}
+
+    .navbar .nav-link:hover {
+        color: #eb5656 !important;
+    }
+
+
+/* =========================================
+   Navbar Mobile Button
+========================================= */
+
+.navbar-toggler {
+    border: 1px solid #222;
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+    position: relative;
+}
+
+    .navbar-toggler-icon:before {
+        content: "\f0c9";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: #222;
+        font-size: 22px;
+    }
+
+
+/* =========================================
+   Profile Image
+========================================= */
+
+.navbar .rounded-circle {
+    border: 2px solid #fff;
+}
+
+
+/* =========================================
+   User Menu
+========================================= */
+
+.user-menu {
+    margin-left: 0 !important;
+}
+
+    .user-menu .nav-item {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer1 {
+    width: 100%;
+    background-color: #5c9d9f;
+    color: #222;
+    margin-top: 30px;
+    padding-top: 15px;
+}
+
+
+/* =========================================
+   Footer Content
+========================================= */
+
+.footer-box {
+    margin-bottom: 20px;
+}
+
+    .footer-box h5 {
+        font-size: 15px;
+        margin-bottom: 8px;
+        color: #222;
+    }
+
+    .footer-box a {
+        display: block;
+        color: #333;
+        text-decoration: none;
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+        .footer-box a:hover {
+            color: #eb5656;
+        }
+
+
+/* =========================================
+   Footer Logo
+========================================= */
+
+.footer-logo {
+    text-align: center;
+}
+
+.footer-logo-img {
+    width: 80px;
+    max-width: 100%;
+    height: auto;
+    transform: scale(1.3);
+}
+
+
+/* =========================================
+   Social Icons
+========================================= */
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+    .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        margin: 0 3px;
+        border-radius: 50%;
+        background: #222;
+        color: #fff;
+    }
+
+        .social-links a:hover {
+            background: #eb5656;
+            color: #fff;
+        }
+
+
+/* =========================================
+   Footer Bottom
+========================================= */
+
+.footer-bottom {
+    width: 100%;
+    background-color: #5c9d9f;
+    border-top: 1px solid rgba(34, 34, 34, 0.2);
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #333;
+}
+
+
+/* =========================================
+   Logo Hover
+========================================= */
+
+.navbar-logo,
+.footer-logo-img {
+    transition: 0.3s ease;
+}
+
+    .navbar-logo:hover,
+    .footer-logo-img:hover {
+        filter: sepia(1) saturate(5) hue-rotate(320deg);
+    }
+
+
+/* =========================================
+   Responsive Navbar - Tablet
+========================================= */
+
+@media (max-width: 768px) {
+
+    .navbar-brand {
+        font-size: 15px;
+    }
+
+    .navbar-logo {
+        width: 100px;
+        height: 60px;
+    }
+}
+
+
+/* =========================================
+   Responsive Navbar - Mobile
+========================================= */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        padding: 5px 10px;
+    }
+
+    .navbar-logo {
+        width: 55px;
+        height: 38px;
+    }
+
+    .navbar-brand {
+        font-size: 13px;
+    }
+
+    .footer1 {
+        padding-top: 12px;
+    }
+}
+

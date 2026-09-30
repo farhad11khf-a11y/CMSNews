@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CMSNews.Models.ViewModels.NewsGroupsViewModel>
+
+@if(ViewBag.locId==1)
+{
+<div id="services">
+    @*<div class="jumbotron">*@
+    <div class="news-section">
+
+        <div class="area text-center">
+            <div class="col-12 text-center">
+                <h2 class="title">گروه اخبار</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="news-group">
+
+                @foreach (var item in Model)
+                {
+                    <div class="box-group">
+                        <div class="box-group-top">
+                            <img src="~/images/news.group/@item.ImageName" alt="@item.NewsGroupTitle">
+                        </div>
+                        <div class="box-group-boottom">
+                            <a href="#">
+                                @item.NewsGroupTitle
+                            </a>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+}

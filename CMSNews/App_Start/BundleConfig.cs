@@ -17,7 +17,8 @@ namespace CMSNews.App_Start
                 .Include(
                     "~/Content/bootstrap.min.css",
                     "~/Content/bootstrap.rtl.min.css",
-                    "~/Content/Site.css"
+                    "~/Content/Site.css",
+                    "~/Content/admin-style.css"
                 ));
 
             // jQuery اصلی
