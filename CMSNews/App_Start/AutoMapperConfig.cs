@@ -24,7 +24,10 @@ namespace CMSNews.App_Start
                 t.CreateMap<News , NewsViewModel>().IgnoreAllPropertiesWithAnInaccessibleSetter().ReverseMap();
                 t.CreateMap<User, UserViewModel>().IgnoreAllPropertiesWithAnInaccessibleSetter().ReverseMap();
                 t.CreateMap<Comment, CommentsViewMdel>().IgnoreAllPropertiesWithAnInaccessibleSetter().ReverseMap();
-                
+                t.CreateMap<User, ProfileViewModel>().IgnoreAllPropertiesWithAnInaccessibleSetter().ReverseMap();
+                t.CreateMap<RegisterViewModel, User>().ForMember(x => x.ImageName, opt => opt.MapFrom(_ => "nophoto.png"));
+
+
             });
         }
     }

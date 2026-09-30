@@ -1,0 +1,61 @@
+﻿
+@model CMSNews.Models.ViewModels.ProfileViewModel
+
+@{
+    ViewBag.Title = " حساب کاربری";
+}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h3 class="mt-3">
+                حساب کاربری: @Model.FirstName @Model.LastName
+            </h3>
+            <div class="text-center mb-4">
+
+
+
+
+                <img src="@Url.Content("~/Images/users/" + Model.ImageName)"
+                     alt="@Model.LastName'تصویر پروفایل'"
+                     class="rounded-circle shadow"
+                     width="130"
+                     height="130"
+                   style="object-fit: contain;" />
+
+
+
+            </div>
+            <hr />
+
+            <p>
+                <strong>نام:</strong>
+                @Model.FirstName
+            </p>
+
+            <p>
+                <strong>نام خانوادگی:</strong>
+                @Model.LastName
+            </p>
+
+            <p>
+                <strong>شماره موبایل:</strong>
+                @Model.MobileNumber
+            </p>
+
+            <p>
+                <strong>تاریخ ثبت‌نام:</strong>
+                @Html.DisplayFor(model => model.RegisteDate)
+
+            </p>
+
+            <div class="mt-4">
+                <a href="@Url.Action("EditProfile", "Account")"
+                   class="btn btn-primary">
+                    <i class="fas fa-edit"></i>
+                    ویرایش اطلاعات
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

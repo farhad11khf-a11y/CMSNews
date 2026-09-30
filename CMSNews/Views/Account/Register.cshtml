@@ -1,0 +1,236 @@
+﻿
+@model CMSNews.Models.ViewModels.RegisterViewModel
+@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "ثبت نام";
+}
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6 col-lg-5">
+
+            <div class="card mt-5 mb-5 shadow">
+
+                <div class="card-body p-4 py-5">
+
+                    <!-- عنوان -->
+
+                    <div class="text-center mb-4">
+
+                        <h3>
+                            ثبت نام حساب کاربری
+                        </h3>
+
+                        <p class="text-muted">
+                            اطلاعات خود را برای ایجاد حساب وارد کنید
+                        </p>
+
+                    </div>
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <!-- Validation Summary -->
+
+                        @Html.ValidationSummary(
+                            true,
+                            "",
+                            new { @class = "text-danger mb-3" }
+                        )
+
+
+                        <!-- FirstName -->
+
+                        <div class="mb-3">
+
+                            @Html.LabelFor(
+                                model => model.FirstName,
+                                new { @class = "form-label" }
+                            )
+
+                            @Html.EditorFor(
+                                model => model.FirstName,
+                                new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control bg-light",
+                                        placeholder = "نام"
+                                    }
+                                }
+                            )
+
+                            @Html.ValidationMessageFor(
+                                model => model.FirstName,
+                                "",
+                                new { @class = "text-danger" }
+                            )
+
+                        </div>
+
+
+                        <!-- LastName -->
+
+                        <div class="mb-3">
+
+                            @Html.LabelFor(
+                                model => model.LastName,
+                                new { @class = "form-label" }
+                            )
+
+                            @Html.EditorFor(
+                                model => model.LastName,
+                                new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control bg-light",
+                                        placeholder = "نام خانوادگی"
+                                    }
+                                }
+                            )
+
+                            @Html.ValidationMessageFor(
+                                model => model.LastName,
+                                "",
+                                new { @class = "text-danger" }
+                            )
+
+                        </div>
+
+
+                        <!-- MobileNumber -->
+
+                        <div class="mb-3">
+
+                            @Html.LabelFor(
+                                model => model.MobileNumber,
+                                new { @class = "form-label" }
+                            )
+
+                            @Html.EditorFor(
+                                model => model.MobileNumber,
+                                new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control bg-light",
+                                        placeholder = "شماره موبایل"
+                                    }
+                                }
+                            )
+
+                            @Html.ValidationMessageFor(
+                                model => model.MobileNumber,
+                                "",
+                                new { @class = "text-danger" }
+                            )
+
+                        </div>
+
+
+                        <!-- Password -->
+
+                        <div class="mb-3">
+
+                            @Html.LabelFor(
+                                model => model.Password,
+                                new { @class = "form-label" }
+                            )
+
+                            @Html.PasswordFor(
+                                model => model.Password,
+                                new
+                                {
+                                    @class = "form-control bg-light",
+                                    placeholder = "رمز عبور"
+                                }
+                            )
+
+                            @Html.ValidationMessageFor(
+                                model => model.Password,
+                                "",
+                                new { @class = "text-danger" }
+                            )
+
+                        </div>
+
+
+                        <!-- ConfirmPassword -->
+
+                        <div class="mb-3">
+
+                            @Html.LabelFor(
+                                model => model.ConfirmPassword,
+                                new { @class = "form-label" }
+                            )
+
+                            @Html.PasswordFor(
+                                model => model.ConfirmPassword,
+                                new
+                                {
+                                    @class = "form-control bg-light",
+                                    placeholder = "تکرار رمز عبور"
+                                }
+                            )
+
+                            @Html.ValidationMessageFor(
+                                model => model.ConfirmPassword,
+                                "",
+                                new { @class = "text-danger" }
+                            )
+
+                        </div>
+
+
+                        <!-- Register Button -->
+
+                        <div class="d-grid">
+
+                            <button class="btn btn-primary w-100"
+                                    type="submit">
+
+                                ثبت نام
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Login Link -->
+
+                        <div class="text-center mt-4">
+
+                            <span class="text-muted">
+                                قبلاً ثبت نام کرده‌اید؟
+                            </span>
+
+                            <a href="@Url.Action("Login", "Account")">
+                                ورود به حساب
+                            </a>
+
+                        </div>
+
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
