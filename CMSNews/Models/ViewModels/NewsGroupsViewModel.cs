@@ -19,6 +19,6 @@ namespace CMSNews.Models.ViewModels
         [Display(Name = "تصویر خبر")]
         [MaxLength(100)]
         public string ImageName { get; set; }
-        public IEnumerable<News> Newses { get; set; }
+        public ICollection<News> News { get; set; }
     }
 }

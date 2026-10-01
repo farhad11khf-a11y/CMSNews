@@ -1,0 +1,197 @@
+﻿@model CMSNews.Models.ViewModels.NewsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+<div class="container mt-4">
+    <div class="row g-4">
+
+        <!-- خبر اصلی -->
+        <div class="col-12 col-lg-8">
+
+            <div class="card shadow-sm">
+
+                <img src="~/Images/news/@Model.ImageName"
+                     class="card-img-top"
+                     alt="@Model.NewsTitle">
+
+                <div class="card-body">
+
+                    <h2 class="card-title">
+                        @Model.NewsTitle
+                    </h2>
+
+                    <!-- اطلاعات خبر -->
+                    <div class="d-flex flex-wrap gap-3 text-muted mb-3">
+
+                        <span>
+                            <i class="fa fa-eye"></i>
+                            @Model.see
+                        </span>
+
+                        <span>
+                            <i class="fa fa-calendar"></i>
+                            @Html.DisplayFor(modle=>modle.RegisterDate)
+                        </span>
+
+                        <span>
+                            <i class="fa fa-thumbs-up"></i>
+                          @Model.Like
+                        </span>
+
+                    </div>
+
+                    <p class="card-text">
+                        @Html.Raw(Model.Description)
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- نظرات -->
+            <div class="card shadow-sm mt-4">
+
+                <div class="card-body">
+
+                    <h4 class="mb-3">
+                        نظرات کاربران
+                    </h4>
+
+                    <p class="text-muted">
+                        نظرات کاربران برای خبر - عنوان خبر
+                    </p>
+
+
+                    <!-- نظر اول -->
+                    <div class="d-flex border rounded p-3 mb-3">
+
+                        <img src="~/Images/person/person1.png"
+                             class="rounded-circle me-3"
+                             width="60"
+                             height="60"
+                             alt="کاربر">
+
+                        <div>
+
+                            <h5 class="mb-1">
+                                علی
+                            </h5>
+
+                            <small class="text-muted">
+                                تاریخ درج نظر : 23 مهر ماه 1399
+                            </small>
+
+                            <p class="mt-2 mb-0">
+                                متن نظر کاربر متن نظر کاربر
+                                متن نظر کاربر متن نظر کاربر.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- نظر دوم -->
+                    <div class="d-flex border rounded p-3 mb-3">
+
+                        <img src="~/Images/person/person1.png"
+                             class="rounded-circle me-3"
+                             width="60"
+                             height="60"
+                             alt="کاربر">
+
+                        <div>
+
+                            <h5 class="mb-1">
+                                محمد
+                            </h5>
+
+                            <small class="text-muted">
+                                تاریخ درج نظر : 23 مهر ماه 1399
+                            </small>
+
+                            <p class="mt-2 mb-0">
+                                متن نظر کاربر متن نظر کاربر
+                                متن نظر کاربر متن نظر کاربر.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ثبت نظر -->
+                    <div class="mt-4">
+
+                        <h5>
+                            نظر خود را در مورد خبر وارد کنید
+                        </h5>
+
+                        <form>
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    نام
+                                </label>
+
+                                <input type="text"
+                                       class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    ایمیل
+                                </label>
+
+                                <input type="email"
+                                       class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    متن نظر
+                                </label>
+
+                                <textarea class="form-control"
+                                          rows="5"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                ارسال نظر
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- سایدبار -->
+        <div class="col-12 col-lg-4">
+
+            <!-- گروه های خبری -->
+            @Html.Action("ShowNewsGroup", "_PartialNews", new { locId = 2 })
+
+
+
+            <!-- تازه ترین خبرها -->
+            @Html.Action("LatestNews", "_PartialNews", new { count = 4 })
+   
+
+
+            <!-- پربازدیدترین -->
+
+            @Html.Action("MostViewedNews", "_PartialNews", new { count = 4 })
+            
+
+        </div>
+
+    </div>
+</div>

@@ -48,7 +48,7 @@ namespace CMSNews.Models.ViewModels
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public virtual NewsGroup NewsGroup { get; set; }
-        public virtual IEnumerable<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
     }
 }

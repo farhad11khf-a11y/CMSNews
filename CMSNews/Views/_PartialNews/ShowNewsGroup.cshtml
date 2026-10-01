@@ -1,38 +1,113 @@
 ﻿@model IEnumerable<CMSNews.Models.ViewModels.NewsGroupsViewModel>
 
-@if(ViewBag.locId==1)
+@if (ViewBag.locId == 1)
 {
-<div id="services">
-    @*<div class="jumbotron">*@
-    <div class="news-section">
+    <div id="services">
 
-        <div class="area text-center">
-            <div class="col-12 text-center">
-                <h2 class="title">گروه اخبار</h2>
-                <div class="underline"></div>
-            </div>
+        <div class="news-section">
 
-            <div class="news-group">
+            <div class="area text-center">
 
-                @foreach (var item in Model)
-                {
-                    <div class="box-group">
-                        <div class="box-group-top">
-                            <img src="~/images/news.group/@item.ImageName" alt="@item.NewsGroupTitle">
+                <div class="col-12 text-center bg-warning">
+
+                    <h2 class="title">
+                        گروه اخبار
+                    </h2>
+
+                    <div class="underline"></div>
+
+                </div>
+
+                <div class="news-group">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="box-group">
+
+                            <div class="box-group-top">
+
+                                <img src="~/images/news.group/@item.ImageName"
+                                     alt="@item.NewsGroupTitle">
+
+                            </div>
+
+                            <div class="box-group-boottom">
+
+                                <a href="@Url.Action("ShowNewsList", "_PartialNews",new {id= item.NewsGroupId})">
+                                    @item.NewsGroupTitle
+                                </a>
+
+                            </div>
+
                         </div>
-                        <div class="box-group-boottom">
-                            <a href="#">
-                                @item.NewsGroupTitle
-                            </a>
-                        </div>
-                    </div>
-                }
+                    }
 
-
+                </div>
 
             </div>
 
         </div>
+
     </div>
-</div>
+}
+else if (ViewBag.locId == 2)
+{
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-header bg-warning">
+
+            <h5 class="mb-0">
+                گروه های خبری
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            @foreach (var item in Model)
+            {
+                <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom">
+
+                    <!-- تصویر گروه -->
+                    <img src="~/Images/news.group/@item.ImageName"
+                         class="rounded-circle"
+                         width="50"
+                         height="50"
+                         style="object-fit: cover;"
+                         alt="@item.NewsGroupTitle">
+
+                    <!-- اطلاعات گروه -->
+                    <div class="flex-grow-1">
+
+                        <a href="#"
+                           class="text-decoration-none text-dark">
+
+                            
+
+                        </a>
+                        <a href="@Url.Action("ShowNewsList", "_PartialNews",new {id= item.NewsGroupId})">
+                            <h6 class="mb-1">
+                                @item.NewsGroupTitle
+                            </h6>
+                        </a>
+
+                        <small class="text-muted">
+
+                            تعداد خبرهای گروه
+                            @item.NewsGroupTitle :
+
+                            <span class="badge bg-success">
+                                @item.News.Count
+                            </span>
+
+                        </small>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
 }

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CMSNews.Models.ViewModels.NewsViewModel>
+@{
+    ViewBag.Title = "اخبار";
+}
+
+
+<body>
+
+    <div class="container my-5" id="tourpackages-carousel">
+
+        <div class="row g-4">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+
+                        <img src="~/Images/news/@item.ImageName"
+                             class="img-fluid "
+                             @*style="height: 200px; object-fit: cover;"*@
+                             alt="@item.NewsTitle">
+
+                        <div class="card-body d-flex flex-column">
+
+                            <h4 class="card-title">
+                                @item.NewsTitle
+                            </h4>
+
+                            <div class="card-text text-justify news-description">
+                                @Html.Raw(item.Description)
+                            </div>
+
+                            <a href="@Url.Action("Details", "_PartialNews", new { id = item.NewsId })"
+                               class="btn btn-info mt-auto">
+                                جزییات خبر
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+
+        </div>
+
+    </div>
+
+</body>
+```

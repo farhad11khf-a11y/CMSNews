@@ -1,48 +1,65 @@
 ﻿@model IEnumerable<CMSNews.Models.ViewModels.NewsViewModel>
 
+<div class="card shadow-sm mb-4">
 
-<div class="news-panel">
-    <div class="news-item-title">
-        تازه ترین خبرها
+    <div class="card-header bg-warning ">
+        <h5 class="mb-0">
+            تازه ترین خبرها
+        </h5>
     </div>
-    @foreach (var item in Model)
-    { 
 
-        <div class="news-item1 row">
-            <div class="news-item-right">
-                <img src="~/images/news/@item.ImageName" alt="@item.NewsTitle" class="img1">
-            </div>
-            <div class="news-item-left">
-                <a href="#">
-                    <h2 class="news-title">
-                        @item.NewsTitle
-                    </h2>
-                </a>
-                <div class="news-desc">
-                    <div>
-                     
-                        <i class="fa fa-eye"></i>
-                        @item.see
-                    </div>
-                    <div>
-                        <i class="fa fa-calendar"></i>
-                        @Html.DisplayFor(Model=>item.RegisterDate)
-                
-                    </div>
-                    <div>
-                        <i class="fa fa-thumbs-up"></i>
-                        @item.Like
-                    </div>
+    <div class="card-body">
+
+        @foreach (var item in Model)
+        {
+            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
+
+                <!-- تصویر -->
+                <div class="flex-shrink-0">
+                    <img src="~/Images/news/@item.ImageName"
+                         alt="@item.NewsTitle"
+                         width="80"
+                         height="70"
+                         class="rounded"
+                         style="object-fit: cover;">
                 </div>
+
+                <!-- اطلاعات خبر -->
+                <div class="flex-grow-1">
+
+                    <a href="@Url.Action("Details", "_PartialNews", new { id = item.NewsId })"
+                       class="text-decoration-none text-dark">
+
+                        <h6 class="mb-2">
+                            @item.NewsTitle
+                        </h6>
+
+                    </a>
+
+                    <div class="d-flex flex-wrap gap-2 text-muted small">
+
+                        <span>
+                            <i class="fa fa-eye"></i>
+                            @item.see
+                        </span>
+
+                        <span>
+                            <i class="fa fa-calendar"></i>
+                            @Html.DisplayFor(modelItem => item.RegisterDate)
+                        </span>
+
+                        <span>
+                            <i class="fa fa-thumbs-up"></i>
+                            @item.Like
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
-        </div>
+        }
 
-
-    
-    }
-
+    </div>
 
 </div>
-
-
-

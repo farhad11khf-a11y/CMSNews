@@ -61,7 +61,35 @@ namespace CMSNews.Controllers
                 .mapper.Map<News, NewsViewModel>(latestnews);
             return PartialView(latestnewsViewModels);
         }
+        public ActionResult Details(int id)
+        {
 
+            var detailsNews = _newsService.GetEntity(id);
+            if (detailsNews == null || !detailsNews.IsActive)
+            {
+                return HttpNotFound();
+            }
+            detailsNews.see++;
+            _newsService.Update(detailsNews);
+            _newsService.Save();
+
+            NewsViewModel detailsNewsViewModels = AutoMapperConfig
+                 .mapper.Map<News, NewsViewModel>(detailsNews);
+            return View(detailsNewsViewModels);
+        }
+        [Route("Nees")]
+        public ActionResult ShowNewsList(int? id)
+        {
+
+            var listnews = _newsService.GetAll().Where(t => t.IsActive).OrderByDescending(u => u.RegisterDate).ToList();
+            if (id != null)
+            {
+                listnews = listnews.Where(t => t.NewsGroupId == id).ToList();
+            }
+            List<NewsViewModel> listNewsViewModels = AutoMapperConfig
+                .mapper.Map<IEnumerable<News>, List<NewsViewModel>>(listnews);
+            return View(listNewsViewModels);
+        }
 
     } 
 }

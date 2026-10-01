@@ -41,7 +41,7 @@ namespace CMSNews.Models.Models
         [Required]
         [MaxLength(20)]
         public string Role { get; set; }
-        public virtual IEnumerable<News> Newses { get; set; }
+        public virtual ICollection<News> News { get; set; }
 
 
 

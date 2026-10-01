@@ -28,6 +28,6 @@ namespace CMSNews.Models.ViewModels
 
         public bool IsActive { get; set; }
       
-        public virtual IEnumerable<News> Newses { get; set; }
+        public virtual ICollection<News> News { get; set; }
     }
 }
